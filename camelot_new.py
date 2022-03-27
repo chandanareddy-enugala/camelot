@@ -21,6 +21,9 @@ action('CreateCharacter(Bob, B)')
 action('SetClothing(Bob, Peasant)')
 action('SetPosition(Bob, BobsHouse.Door)')
 
+###added new character
+action('CreateCharacter(Tom, A)')
+
 action("CreatePlace(ForestPath, ForestPath)")
 action('CreateCharacter(Angel, F)')
 action('SetClothing(Angel, Warlock)')

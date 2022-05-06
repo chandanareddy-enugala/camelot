@@ -2,6 +2,7 @@
 class Set_:
     def __init__(self, action):
         self.Action = action
+        self.DisableEnableInput_Value = 0
 
     # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Camera Setting
     def CameraFocus(self, object):
@@ -16,10 +17,14 @@ class Set_:
 
     # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Enable | Disable Input
     def EnableInput(self):
-        TF = self.Action.Execute_Command(f"EnableInput()", True)
+        TF = True
+        while self.DisableEnableInput_Value>0:
+            TF = self.Action.Execute_Command(f"EnableInput()", True)
+            self.DisableEnableInput_Value -= 1
         return TF
     def DisableInput(self):
         TF = self.Action.Execute_Command(f"DisableInput()", True)
+        self.DisableEnableInput_Value += 1
         return TF
 
     # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Wait | Poistion

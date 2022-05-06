@@ -13,6 +13,8 @@ class Item_:
     # Creating an Item
     # ============================================================================
     def CreateItem(self):
-        self.Action.Execute_Command(f'CreateItem({self.Name}, {self.Type})', True)
+        TF = self.Action.Execute_Command(f'CreateItem({self.Name}, {self.Type})', True)
+        if TF == False:
+            self.Action.Execute_Command("Quit()")
         return True
 

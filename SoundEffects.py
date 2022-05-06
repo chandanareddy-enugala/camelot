@@ -1,14 +1,17 @@
 
 class SoundEffect_:
-    def __init__(self, sound, action):
+    def __init__(self, sound, music, action):
         self.Action = action
         self.Name = sound["Name"]
         self.Type = sound["Type"]
+        self.Music_On_Off = music
 
     def Play(self):
-        self.Action.Execute_Command(f"PlaySound({self.Name})")
+        if self.Music_On_Off == "ON":
+            self.Action.Execute_Command(f"PlaySound({self.Name})")
 
     def Stop(self):
-        self.Action.Execute_Command(f"StopSound({self.Name})")
+        if self.Music_On_Off == "ON":
+            self.Action.Execute_Command(f"StopSound({self.Name})")
 
 

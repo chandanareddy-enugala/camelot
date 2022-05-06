@@ -15,6 +15,17 @@ class Setup:
         for item in self.V.items.keys():
             TF = eval(f"self.V.Item_{item}.CreateItem()")
             if TF == True: continue
+
+        '''V.Place_ForestPath
+
+        V.Char_Bob
+        V.Char_Angel
+        
+        self.Item_BluePotion = V.Item_BluePotion
+        self.Item_RedPotion = V.Item_RedPotion
+        self.Item_CloseScroll = V.Item_CloseScroll
+        self.Item_PurpleBook = V.Item_PurpleBook
+        '''
         # ============================================= SHOW MENU
         self.V.Display.FadeOut()
         self.V.Set.CameraFocus(self.V.Place_ForestPath.EastEnd)
@@ -25,9 +36,10 @@ class Setup:
         self.V.Display.Menu_Show()
         self.V.D_GameInstructions.ShowDialogs()
         camelotMessage = self.V.D_Music_On_Off.ShowDialogs()
-        if "ON" in camelotMessage:
+        self.V.Set.EnableInput()
+        if "CloseOn" in camelotMessage:
             self.V.Music_On_Off = "ON"
-        elif "OFF" in camelotMessage:
+        elif "CloseOff" in camelotMessage:
             self.V.Music_On_Off = "OFF"
 
 

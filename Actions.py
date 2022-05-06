@@ -1,3 +1,4 @@
+
 # This Class is used for sending commands to camelot and receiving messages from camelot
 # --------------------------------------------------------------------------------------
 class Actions:
@@ -17,7 +18,7 @@ class Actions:
                 failedMessage = 'target is blocked'
                 if failedMessage in receivedMessage:
                     TF = self.Exception_of_TargetBlocked(command)
-                    return TF
+                    return False
             elif receivedMessage.startswith(self.errorStr):
                 return False
     def Execute_Command(self, command, wait=False):
@@ -29,7 +30,6 @@ class Actions:
     def Exception_of_TargetBlocked(self, command):
         TF = self.Execute_Command(command)
         return TF
-
 '''
 # This code is used for TESTING purpose.
 # It shows all the camelot commands execution using 'print()' as we wanted execution.
@@ -41,5 +41,4 @@ class Actions:
 
     def Execute_Command(self, command, wait=False):
         print(self.startStr + command)
-        return True
-'''
+        return True'''
